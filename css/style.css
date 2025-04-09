@@ -30,24 +30,28 @@ body {
     --i: 1;
     --shift: calc(var(--i) - var(--half-count));
     --translateX: translateX(calc(var(--shift) * 30px));
-    --translateY: calc((var(--half-count) - var(--shift) * var(--shift)) * -0.4px);
+    --translateY: translateY(calc((var(--half-count) - var(--shift) * var(--shift)) * -0.4px));
     --translateYShift: 0px;
     --rotate: rotate(calc(var(--shift) * 2deg));
     position: absolute;
     width: 100px;
     height: 145px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transform-origin: bottom center;
     transition: transform 0.2s ease-in-out;
     left: 50%;
-    transform: var(--translateX) var(--rotate) translateY(calc(var(--translateY) - var(--translateYShift)));
+    transform: var(--translateX) var(--rotate) var(--translateY);
 }
 
-.card:hover {
-    --translateYShift: 20px;
+.card img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover img {
+    transform: translateY(-20px);
+    box-shadow: 0 0 5px rgb(255, 251, 0);
 }
 
 .card img {

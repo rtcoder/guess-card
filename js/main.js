@@ -89,6 +89,9 @@ function answer(isYes) {
 }
 
 function revealCard() {
+    hide(buttonYes, buttonNo);
+    show(buttonReset);
+
     const card = cardMap[answerBits];
 
     if (card) {
