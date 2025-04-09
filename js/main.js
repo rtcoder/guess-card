@@ -1,4 +1,4 @@
-import {getCardDiv, getCardNames, hide, show, shuffle, sleep} from './utils.js';
+import {getCardNames, hide, renderCards, show, shuffle} from './utils.js';
 
 const allCards = [
     '2c', '2d', '2h', '2s', '3c', '3d', '3h', '3s',
@@ -55,17 +55,11 @@ function resetGame() {
             return value;
         });
 
-    renderCards(getCardNames(selectedCards));
+    render(getCardNames(selectedCards));
 }
 
-async function renderCards(pool) {
-    console.log(pool);
-    cardsDiv.classList.add('collapsed');
-    cardsDiv.style.setProperty('--count', pool.length);
-    await sleep(300);
-    cardsDiv.innerHTML = pool.map((card, idx) => getCardDiv(idx, card)).join('');
-    await sleep(30);
-    cardsDiv.classList.remove('collapsed');
+function render(cards) {
+    renderCards(cards, cardsDiv);
 }
 
 function showNextGroup() {
@@ -80,7 +74,7 @@ function showNextGroup() {
 
     const combined = shuffle([...group, ...extras]);
 
-    renderCards(combined);
+    render(combined);
 }
 
 function answer(isYes) {
@@ -99,7 +93,7 @@ function revealCard() {
 
     if (card) {
         alert(card.name);
-        renderCards([card.name]);
+        render([card.name]);
     } else {
         alert('brak');
     }
