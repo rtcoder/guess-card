@@ -30,3 +30,7 @@ export async function renderCards(pool, cardsDiv) {
     await sleep(30);
     cardsDiv.classList.remove('collapsed');
 }
+
+export function q(selector) {
+    return document.querySelector(selector);
+}
