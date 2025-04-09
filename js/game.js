@@ -57,7 +57,6 @@ function revealCard() {
     const card = GAME.cardMap[GAME.answerBits];
 
     if (card) {
-        alert(card.name);
         render([card.name]);
     } else {
         alert('brak');
