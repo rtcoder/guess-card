@@ -1,5 +1,6 @@
 import {allCards, GAME} from './consts.js';
-import {getCardNames, hide, renderCards, show, shuffle} from './utils.js';
+import {elements} from './divs.js';
+import {getCardNames, hide, render, show, shuffle} from './utils.js';
 
 export function resetGame() {
     GAME.currentBit = 0;
@@ -18,10 +19,6 @@ export function resetGame() {
         });
 
     render(getCardNames(GAME.selectedCards));
-}
-
-function render(cards) {
-    renderCards(cards, GAME.cardsDiv);
 }
 
 export function showNextGroup() {
@@ -51,8 +48,8 @@ export function answer(isYes) {
 }
 
 function revealCard() {
-    hide(GAME.buttonYes, GAME.buttonNo);
-    show(GAME.buttonReset);
+    hide(elements.buttons.yes, elements.buttons.no, elements.questionTitleHeading);
+    show(elements.buttons.reset, elements.answerTitleHeading);
 
     const card = GAME.cardMap[GAME.answerBits];
 

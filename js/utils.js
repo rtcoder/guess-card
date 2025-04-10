@@ -1,3 +1,5 @@
+import {elements} from './divs.js';
+
 export async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -22,13 +24,13 @@ export function shuffle(arr) {
     return arr.sort(() => Math.random() - 0.5);
 }
 
-export async function renderCards(pool, cardsDiv) {
-    cardsDiv.classList.add('collapsed');
-    cardsDiv.style.setProperty('--count', pool.length);
+export async function render(cards) {
+    elements.cardsDiv.classList.add('collapsed');
+    elements.cardsDiv.style.setProperty('--count', cards.length);
     await sleep(300);
-    cardsDiv.innerHTML = pool.map((card, idx) => getCardDiv(idx, card)).join('');
+    elements.cardsDiv.innerHTML = cards.map((card, idx) => getCardDiv(idx, card)).join('');
     await sleep(30);
-    cardsDiv.classList.remove('collapsed');
+    elements.cardsDiv.classList.remove('collapsed');
 }
 
 export function q(selector) {

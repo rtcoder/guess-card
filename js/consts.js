@@ -9,18 +9,11 @@ figures.forEach(f => {
 });
 
 const GAME = {
-
     selectedCards: [],
     cardMap: {},
     currentBit: 0,
     answerBits: 0,
     maxBits: 5,
-
-    cardsDiv: null,
-    buttonStart: null,
-    buttonYes: null,
-    buttonNo: null,
-    buttonReset: null,
 };
 
 
