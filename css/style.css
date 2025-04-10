@@ -8,10 +8,13 @@
 body {
     background: #010917;
     font-family: sans-serif;
-    padding-top: 20px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
-
+.game{
+    position: fixed;
+    top: 20px;
+    width: 100vw;
+}
 .card-fan {
     position: relative;
     width: 100%;
@@ -39,7 +42,6 @@ body {
     width: 80px;
     transform-origin: bottom center;
     transition: all 0.2s ease-in-out;
-    left: 50%;
     transform: var(--translateX) var(--rotate) var(--translateY);
 
     &:hover img {
@@ -62,6 +64,8 @@ body {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    align-items: center;
+    height: 200px;
 }
 
 button {
@@ -87,4 +91,30 @@ h2 {
     color: #fff;
     text-align: center;
     text-shadow: 0 0 10px #ffea00, 0 0 5px #ffae00;
+}
+
+section {
+    height: 100vh;
+    background: #000;
+}
+section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+            to top,
+            #4f82cf,
+            #6ca6bf,
+            #ffffff
+    );
+    mix-blend-mode: color;
+    pointer-events: none;
+}
+video {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
