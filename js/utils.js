@@ -13,7 +13,7 @@ export function show(...els) {
 }
 
 export function getCardDiv(idx, card) {
-    return `<div class="card" style="--i: ${idx}"><img src="./img/${card}.png" alt=""/></div>`;
+    return `<div class="card" style="--i: ${idx}"><img src="./assets/img/${card}.png" alt=""/></div>`;
 }
 
 export function getCardNames(cards) {
