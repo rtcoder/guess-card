@@ -10,11 +10,13 @@ body {
     font-family: sans-serif;
     overflow: hidden;
 }
-.game{
+
+.game {
     position: fixed;
     top: 20px;
     width: 100vw;
 }
+
 .card-fan {
     position: relative;
     width: 100%;
@@ -85,7 +87,6 @@ button {
     }
 }
 
-
 h2 {
     width: 100%;
     color: #fff;
@@ -97,6 +98,7 @@ section {
     height: 100vh;
     background: #000;
 }
+
 section:before {
     content: "";
     position: absolute;
@@ -113,6 +115,7 @@ section:before {
     mix-blend-mode: color;
     pointer-events: none;
 }
+
 video {
     object-fit: cover;
     height: 100%;
