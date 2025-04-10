@@ -6,8 +6,10 @@
 }
 
 body {
-    background: green;
+    background: #010917;
     font-family: sans-serif;
+    padding-top: 20px;
+    overflow-x: hidden;
 }
 
 .card-fan {
@@ -20,43 +22,39 @@ body {
     perspective: 1000px;
     --count: 20;
     --half-count: calc(var(--count) / 2);
-}
 
-.card-fan.collapsed .card {
-    transform: translateX(0) rotate(0deg) translateY(0);
+    &.collapsed .card {
+        transform: translateX(0) rotate(0deg) translateY(0);
+    }
 }
 
 .card {
     --i: 1;
     --shift: calc(var(--i) - var(--half-count));
-    --translateX: translateX(calc(var(--shift) * 30px));
+    --translateX: translateX(calc(var(--shift) * 20px));
     --translateY: translateY(calc((var(--half-count) - var(--shift) * var(--shift)) * -0.4px));
     --translateYShift: 0px;
     --rotate: rotate(calc(var(--shift) * 2deg));
     position: absolute;
-    width: 100px;
-    height: 145px;
+    width: 80px;
     transform-origin: bottom center;
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     left: 50%;
     transform: var(--translateX) var(--rotate) var(--translateY);
-}
 
-.card img {
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
-    transition: transform 0.2s ease-in-out;
-}
+    &:hover img {
+        transform: translateY(-20px);
+        box-shadow: 0 0 5px rgb(255, 251, 0);
+    }
 
-.card:hover img {
-    transform: translateY(-20px);
-    box-shadow: 0 0 5px rgb(255, 251, 0);
-}
-
-.card img {
-    width: 100px;
-    pointer-events: none;
+    & img {
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ccc;
+        transition: all 0.2s ease-in-out;
+        width: 100%;
+        pointer-events: none;
+    }
 }
 
 .buttons {
@@ -67,10 +65,26 @@ body {
 }
 
 button {
-    background-color: blue;
     color: white;
-    border: none;
+    background: #111;
     padding: 10px 20px;
-    border-radius: 5px;
+    text-transform: uppercase;
+    border: 2px solid white;
+    border-radius: 50px;
     cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background: #fff;
+        color: #111;
+        box-shadow: 0 0 15px #ffb700;
+    }
+}
+
+
+h2 {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 10px #ffea00, 0 0 5px #ffae00;
 }
